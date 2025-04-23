@@ -51,7 +51,6 @@ const AICopilot: React.FC = () => {
     }
   };
 
-  // Suggested questions
   const suggestions = [
     { label: "Quality", query: "What's the quality of care for this patient?" },
     { label: "Risk", query: "What are the risk factors for this patient?" },
@@ -64,12 +63,9 @@ const AICopilot: React.FC = () => {
     setInputValue(query);
   };
 
-  // Get the sidebar context to control sidebar visibility
   const handleCloseSidebar = () => {
-    // Using the useSidebar hook would require moving this to a separate component
-    // For now, we'll use the default collapsed state through the provider
     document.cookie = "sidebar:state=collapsed; path=/; max-age=604800";
-    window.location.reload(); // Force refresh to apply the cookie change
+    window.location.reload();
   };
 
   return (
@@ -80,27 +76,22 @@ const AICopilot: React.FC = () => {
         className="border-l border-gray-200 min-w-[400px]"
       >
         <SidebarRail />
-        <SidebarHeader className="relative flex flex-col items-center p-4 border-b">
-          {/* Close button in the top right - using a regular button for closing */}
+        <SidebarHeader className="relative flex items-center justify-between p-4 border-b">
+          <div className="flex items-center gap-2">
+            <div className="w-5 h-5 bg-red-500 rounded-full"></div>
+            <h2 className="text-lg font-semibold text-gray-800">
+              Copilot
+            </h2>
+          </div>
           <Button 
             size="icon" 
             variant="ghost" 
-            className="absolute right-2 top-2 z-10"
+            className="p-1 hover:bg-gray-100 rounded-md"
             aria-label="Close sidebar"
             onClick={handleCloseSidebar}
           >
-            <X className="w-5 h-5" />
+            <X className="w-4 h-4" />
           </Button>
-          <div className="w-16 h-16 mb-2">
-            <img 
-              src="/lovable-uploads/7ba51120-a6da-421d-b781-2d96cb842dd0.png" 
-              alt="AI Copilot" 
-              className="w-full h-full object-contain" 
-            />
-          </div>
-          <h2 className="text-2xl font-semibold text-center text-gray-800">
-            Hi, I'm Sara. Ask me a question.
-          </h2>
         </SidebarHeader>
         
         <SidebarContent className="p-4 overflow-auto">
