@@ -7,6 +7,7 @@ import { SidebarProvider, Sidebar, SidebarContent, SidebarHeader, SidebarFooter,
 import { X } from "lucide-react";
 import { useToast } from "@/hooks/use-toast";
 import CopilotSuggestionButton from "./CopilotSuggestionButton";
+import CopilotPromptChip from "./CopilotPromptChip";
 import { Bot } from "lucide-react";
 
 interface Message {
@@ -80,7 +81,7 @@ const AICopilot: React.FC = () => {
   return <SidebarProvider defaultOpen={true}>
       <Sidebar side="right" variant="sidebar" className="border-l border-gray-200 min-w-[400px]">
         <SidebarRail />
-        <SidebarHeader className="flex justify-between items-center border-b py-3 px-4 bg-white">
+        <SidebarHeader className="flex flex-row items-center justify-between border-b py-3 px-4 bg-white">
           <div className="flex items-center gap-2">
             <Bot size={22} className="text-[#9b87f5]" />
             <h2 className="text-lg font-bold text-gray-800 tracking-tight">Copilot</h2>
@@ -91,31 +92,45 @@ const AICopilot: React.FC = () => {
         </SidebarHeader>
 
         <SidebarContent className="p-4 overflow-auto">
-          {messages.length === 0 ? <div className="text-center text-gray-500 py-8">
-              <p>
+          {messages.length === 0 ? (
+            <div className="flex flex-col items-center justify-center py-8 gap-3">
+              <p className="text-center text-gray-500">
                 You can ask me many questions about your data. I can answer questions about
               </p>
-            </div> : <div className="space-y-4">
-              {messages.map((message, index) => <div key={index} className={`p-3 rounded-lg max-w-[85%] ${message.role === "user" ? "bg-blue-100 text-blue-900 ml-auto" : "bg-gray-100 text-gray-800"}`}>
+              <CopilotPromptChip
+                text="Payer, provider, patient details, document type, facility"
+                className="mt-2"
+              />
+            </div>
+          ) : (
+            <div className="space-y-4">
+              {messages.map((message, index) => (
+                <div key={index} className={`p-3 rounded-lg max-w-[85%] ${message.role === "user" ? "bg-blue-100 text-blue-900 ml-auto" : "bg-gray-100 text-gray-800"}`}>
                   {message.content}
-                </div>)}
-              {isLoading && <div className="flex items-center space-x-2 p-3 bg-gray-100 rounded-lg text-gray-800 w-fit">
+                </div>
+              ))}
+              {isLoading && (
+                <div className="flex items-center space-x-2 p-3 bg-gray-100 rounded-lg text-gray-800 w-fit">
                   <div className="w-2 h-2 bg-gray-400 rounded-full animate-bounce" style={{
-              animationDelay: "0ms"
-            }} />
+                    animationDelay: "0ms"
+                  }} />
                   <div className="w-2 h-2 bg-gray-400 rounded-full animate-bounce" style={{
-              animationDelay: "150ms"
-            }} />
+                    animationDelay: "150ms"
+                  }} />
                   <div className="w-2 h-2 bg-gray-400 rounded-full animate-bounce" style={{
-              animationDelay: "300ms"
-            }} />
-                </div>}
-            </div>}
+                    animationDelay: "300ms"
+                  }} />
+                </div>
+              )}
+            </div>
+          )}
         </SidebarContent>
 
         <SidebarFooter className="border-t p-4">
           <div className="flex flex-wrap gap-2 mb-3 justify-center">
-            {suggestions.map((suggestion, index) => <CopilotSuggestionButton key={index} label={suggestion.label} onClick={() => handleSuggestionClick(suggestion.query)} />)}
+            {suggestions.map((suggestion, index) => (
+              <CopilotSuggestionButton key={index} label={suggestion.label} onClick={() => handleSuggestionClick(suggestion.query)} />
+            ))}
           </div>
           <form onSubmit={handleSubmit} className="flex items-center gap-2">
             <div className="relative flex-1">
