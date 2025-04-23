@@ -32,10 +32,24 @@ const CopilotSuggestionButton: React.FC<CopilotSuggestionButtonProps> = ({
   return (
     <Button
       variant="outline"
-      className="bg-gray-100 hover:bg-gray-200 border-gray-200 text-gray-700"
+      className="
+        rounded-full 
+        px-3 py-1 
+        text-xs 
+        bg-soft-purple 
+        border-transparent 
+        text-dark-purple 
+        hover:bg-vivid-purple 
+        hover:text-white 
+        transition-colors 
+        duration-200 
+        flex 
+        items-center 
+        gap-1
+      "
       onClick={onClick}
     >
-      <span className="material-icons mr-1 text-sm">{getIcon()}</span>
+      <span className="material-icons text-xs mr-1">{getIcon()}</span>
       {label}
     </Button>
   );
