@@ -1,4 +1,3 @@
-
 "use client";
 import React, { useState } from "react";
 import { Input } from "@/components/ui/input";
@@ -107,18 +106,9 @@ const AICopilot: React.FC = () => {
         <SidebarContent className="p-4 overflow-auto">
           {messages.length === 0 ? (
             <div className="text-center text-gray-500 py-8">
-              <p className="mb-8">
+              <p>
                 You can ask me many questions about your data. I can answer questions about
               </p>
-              <div className="flex flex-wrap gap-2 justify-center">
-                {suggestions.map((suggestion, index) => (
-                  <CopilotSuggestionButton
-                    key={index}
-                    label={suggestion.label}
-                    onClick={() => handleSuggestionClick(suggestion.query)}
-                  />
-                ))}
-              </div>
             </div>
           ) : (
             <div className="space-y-4">
@@ -146,6 +136,15 @@ const AICopilot: React.FC = () => {
         </SidebarContent>
         
         <SidebarFooter className="border-t p-4">
+          <div className="flex flex-wrap gap-2 mb-3 justify-center">
+            {suggestions.map((suggestion, index) => (
+              <CopilotSuggestionButton
+                key={index}
+                label={suggestion.label}
+                onClick={() => handleSuggestionClick(suggestion.query)}
+              />
+            ))}
+          </div>
           <form onSubmit={handleSubmit} className="flex items-center gap-2">
             <div className="relative flex-1">
               <span className="absolute left-3 top-1/2 -translate-y-1/2 text-gray-400">
