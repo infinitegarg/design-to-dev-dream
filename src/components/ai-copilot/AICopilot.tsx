@@ -1,4 +1,3 @@
-
 import React, { useState } from "react";
 import { Input } from "@/components/ui/input";
 import { Button } from "@/components/ui/button";
@@ -7,7 +6,6 @@ import { X } from "lucide-react";
 import { useToast } from "@/hooks/use-toast";
 import CopilotSuggestionButton from "./CopilotSuggestionButton";
 
-// Category/question data structure
 const promptCategories = [
   {
     label: "Patient Overview",
@@ -123,8 +121,7 @@ const AICopilot: React.FC = () => {
         <SidebarContent className="p-4 overflow-auto">
           {messages.length === 0 ? (
             <div className="flex flex-col items-center justify-center py-8 gap-3 w-full">
-              {/* Prompt chips or question list */}
-              {selectedCategory === null ? (
+              {selectedCategory === null && (
                 <div className="flex flex-wrap gap-2 justify-center w-full">
                   {promptCategories.map((cat, idx) => (
                     <CopilotSuggestionButton
@@ -134,7 +131,8 @@ const AICopilot: React.FC = () => {
                     />
                   ))}
                 </div>
-              ) : (
+              )}
+              {selectedCategory !== null && (
                 <div className="flex flex-col gap-2 w-full max-w-full mt-2">
                   {promptCategories[selectedCategory].questions.map((question, qIdx) => (
                     <button
@@ -197,40 +195,6 @@ const AICopilot: React.FC = () => {
         </SidebarContent>
 
         <SidebarFooter className="border-t p-4">
-          {/* Only show quick prompt chips if no conversation yet */}
-          {messages.length === 0 && selectedCategory === null && (
-            <div className="flex flex-wrap gap-2 mb-3 justify-center">
-              {promptCategories.map((cat, idx) => (
-                <CopilotSuggestionButton
-                  key={cat.label}
-                  label={cat.label}
-                  onClick={() => handleSuggestionClick(idx)}
-                />
-              ))}
-            </div>
-          )}
-          {/* Quick questions as buttons when category selected */}
-          {messages.length === 0 && selectedCategory !== null && (
-            <div className="flex flex-col gap-2 mb-3">
-              {promptCategories[selectedCategory].questions.map((question, qIdx) => (
-                <button
-                  key={qIdx}
-                  type="button"
-                  className="text-left px-4 py-2 bg-gradient-to-r from-pink-100 via-orange-50 to-white text-gray-900 rounded-md border border-[#f7e3e8] hover:bg-pink-200 transition"
-                  onClick={() => handleQuestionClick(question)}
-                >
-                  {question}
-                </button>
-              ))}
-              <button
-                className="mt-3 text-xs text-blue-600 underline underline-offset-2 hover:text-blue-800 w-fit self-center"
-                onClick={() => setSelectedCategory(null)}
-                type="button"
-              >
-                ⟵ Back to categories
-              </button>
-            </div>
-          )}
           <form onSubmit={handleSubmit} className="flex items-center gap-2">
             <div className="relative flex-1">
               <Input
