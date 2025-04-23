@@ -11,24 +11,6 @@ const CopilotSuggestionButton: React.FC<CopilotSuggestionButtonProps> = ({
   label,
   onClick,
 }) => {
-  // Get corresponding icon based on label
-  const getIcon = () => {
-    switch (label.toLowerCase()) {
-      case "quality":
-        return "quality";
-      case "risk":
-        return "risk";
-      case "cost":
-        return "cost";
-      case "utilization":
-        return "utilization";
-      case "attribution":
-        return "attribution";
-      default:
-        return "help_outline";
-    }
-  };
-
   return (
     <Button
       variant="outline"
@@ -49,7 +31,6 @@ const CopilotSuggestionButton: React.FC<CopilotSuggestionButtonProps> = ({
       "
       onClick={onClick}
     >
-      <span className="material-icons text-xs mr-1">{getIcon()}</span>
       {label}
     </Button>
   );
