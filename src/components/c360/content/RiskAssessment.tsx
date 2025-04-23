@@ -1,5 +1,4 @@
 import React from "react";
-
 interface RiskCardProps {
   title: string;
   icon: string;
@@ -10,7 +9,6 @@ interface RiskCardProps {
   ongoingActivities: React.ReactNode;
   cardHeight?: string;
 }
-
 const RiskCard: React.FC<RiskCardProps> = ({
   title,
   icon,
@@ -19,10 +17,9 @@ const RiskCard: React.FC<RiskCardProps> = ({
   alerts,
   recommendations,
   ongoingActivities,
-  cardHeight = "88px",
+  cardHeight = "88px"
 }) => {
-  return (
-    <div className="min-w-60 flex-1 shrink basis-[0%]">
+  return <div className="min-w-60 flex-1 shrink basis-[0%]">
       <div className="w-full flex-1 p-3">
         <div className="flex w-full gap-2.5 whitespace-nowrap">
           <div className="items-center rounded bg-[#F4F4F4] flex gap-2 text-base text-[#1F1F1F] font-light text-center leading-none w-6 h-6 p-1">
@@ -34,13 +31,9 @@ const RiskCard: React.FC<RiskCardProps> = ({
         </div>
         <div className="relative flex w-full flex-col mt-2 p-2">
           <div className="absolute z-0 flex max-w-full w-[344px] flex-col inset-0">
-            <div
-              className={`rounded bg-[rgba(252,250,250,1)] flex shrink-0 h-[${cardHeight}]`}
-            />
+            <div className={`rounded bg-[rgba(252,250,250,1)] flex shrink-0 h-[${cardHeight}]`} />
           </div>
-          <div
-            className={`self-stretch rounded ${riskColor} z-0 gap-2.5 text-xs font-bold whitespace-nowrap text-center uppercase leading-none px-1 py-0.5`}
-          >
+          <div className={`self-stretch rounded ${riskColor} z-0 gap-2.5 text-xs font-bold whitespace-nowrap text-center uppercase leading-none px-1 py-0.5`}>
             {riskLevel}
           </div>
           {alerts}
@@ -58,13 +51,10 @@ const RiskCard: React.FC<RiskCardProps> = ({
           <div className="w-full mt-1">{ongoingActivities}</div>
         </div>
       </div>
-    </div>
-  );
+    </div>;
 };
-
 const RiskAssessment: React.FC = () => {
-  return (
-    <section className="w-full mt-4 pb-4 px-4 max-md:max-w-full">
+  return <section className="w-full mt-4 pb-4 px-4 max-md:max-w-full bg-neutral-50 rounded-lg">
       <div className="flex w-full max-md:max-w-full">
         <div className="flex min-w-60 w-full items-center gap-[40px_100px] justify-between flex-wrap flex-1 shrink basis-[0%] py-2 max-md:max-w-full">
           <div className="self-stretch flex items-center gap-4 overflow-hidden my-auto">
@@ -84,13 +74,7 @@ const RiskAssessment: React.FC = () => {
         </div>
       </div>
       <div className="flex w-full items-stretch gap-4 flex-wrap max-md:max-w-full">
-        <RiskCard
-          title="CLINICAL"
-          icon="health_and_safety"
-          riskLevel="Moderate"
-          riskColor="bg-[#FDE6CE] text-[#743208]"
-          alerts={
-            <div className="self-stretch z-0 flex w-full items-stretch gap-2 text-sm text-black font-normal leading-none mt-2">
+        <RiskCard title="CLINICAL" icon="health_and_safety" riskLevel="Moderate" riskColor="bg-[#FDE6CE] text-[#743208]" alerts={<div className="self-stretch z-0 flex w-full items-stretch gap-2 text-sm text-black font-normal leading-none mt-2">
               <div className="bg-[#D93737] flex w-0.5 shrink-0 h-11 rounded-sm" />
               <div className="min-w-60 flex-1 shrink basis-[0%] my-auto">
                 <div>
@@ -101,10 +85,7 @@ const RiskAssessment: React.FC = () => {
                   Influenza, since Dec' 2024
                 </div>
               </div>
-            </div>
-          }
-          recommendations={
-            <>
+            </div>} recommendations={<>
               <div className="flex w-full gap-2">
                 <span className="material-icons text-base text-[#2F2F2F] font-light whitespace-nowrap text-center leading-none w-4 p-0.5">
                   event
@@ -123,10 +104,7 @@ const RiskAssessment: React.FC = () => {
                   Immunization: Influenza
                 </div>
               </div>
-            </>
-          }
-          ongoingActivities={
-            <>
+            </>} ongoingActivities={<>
               <div className="flex w-full gap-2">
                 <span className="material-icons text-base text-[#2F2F2F] font-light whitespace-nowrap text-center leading-none w-4 p-0.5">
                   fact_check
@@ -149,18 +127,9 @@ const RiskAssessment: React.FC = () => {
                   Immunization.
                 </div>
               </div>
-            </>
-          }
-        />
+            </>} />
 
-        <RiskCard
-          title="Social"
-          icon="group"
-          riskLevel="High"
-          riskColor="bg-[#F9E2E2] text-[#631919]"
-          cardHeight="108px"
-          alerts={
-            <div className="self-stretch z-0 flex w-full items-stretch gap-2 text-sm text-black font-normal mt-2">
+        <RiskCard title="Social" icon="group" riskLevel="High" riskColor="bg-[#F9E2E2] text-[#631919]" cardHeight="108px" alerts={<div className="self-stretch z-0 flex w-full items-stretch gap-2 text-sm text-black font-normal mt-2">
               <div className="bg-[#D93737] flex w-0.5 shrink-0 h-16 rounded-sm" />
               <div className="min-w-60 flex-1 shrink basis-[0%] my-auto">
                 <div className="leading-5">
@@ -172,10 +141,7 @@ const RiskAssessment: React.FC = () => {
                   verified income source
                 </div>
               </div>
-            </div>
-          }
-          recommendations={
-            <>
+            </div>} recommendations={<>
               <div className="flex w-full gap-2">
                 <span className="material-icons text-base text-[#2F2F2F] font-light whitespace-nowrap text-center leading-none w-4 px-[3px] py-0.5">
                   upload_file
@@ -196,10 +162,7 @@ const RiskAssessment: React.FC = () => {
                   <span className="font-normal"> for financial aid</span>
                 </div>
               </div>
-            </>
-          }
-          ongoingActivities={
-            <>
+            </>} ongoingActivities={<>
               <div className="flex w-full gap-2">
                 <span className="material-icons text-base text-[#2F2F2F] font-light whitespace-nowrap text-center leading-none w-4 p-0.5">
                   fact_check
@@ -218,27 +181,15 @@ const RiskAssessment: React.FC = () => {
                   CalWorkforce Dev <span className="font-normal">Program</span>
                 </div>
               </div>
-            </>
-          }
-        />
+            </>} />
 
-        <RiskCard
-          title="Behavioral"
-          icon="psychology"
-          riskLevel="Low"
-          riskColor="bg-neutral-200 text-[#1F1F1F]"
-          cardHeight="84px"
-          alerts={
-            <div className="self-stretch z-0 flex w-full items-stretch gap-2 text-sm text-black font-normal leading-5 mt-2">
+        <RiskCard title="Behavioral" icon="psychology" riskLevel="Low" riskColor="bg-neutral-200 text-[#1F1F1F]" cardHeight="84px" alerts={<div className="self-stretch z-0 flex w-full items-stretch gap-2 text-sm text-black font-normal leading-5 mt-2">
               <div className="bg-[#D93737] flex w-0.5 shrink-0 h-10 rounded-sm" />
               <div className="min-w-60 flex-1 shrink basis-[0%] my-auto">
                 <span className="font-bold">Mental Health:</span> Counselling
                 sessions not scheduled
               </div>
-            </div>
-          }
-          recommendations={
-            <div className="flex w-full gap-2">
+            </div>} recommendations={<div className="flex w-full gap-2">
               <span className="material-icons text-base text-[#2F2F2F] font-light whitespace-nowrap text-center leading-none w-4 px-0.5 py-[3px]">
                 create_new_folder
               </span>
@@ -247,13 +198,8 @@ const RiskAssessment: React.FC = () => {
                 ACCESS Program
                 <span className="font-normal"> for mental health</span>
               </div>
-            </div>
-          }
-          ongoingActivities={<></>}
-        />
+            </div>} ongoingActivities={<></>} />
       </div>
-    </section>
-  );
+    </section>;
 };
-
 export default RiskAssessment;
