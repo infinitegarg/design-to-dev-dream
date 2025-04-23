@@ -1,3 +1,4 @@
+
 import React from "react";
 
 const PatientBanner: React.FC = () => {
@@ -10,7 +11,7 @@ const PatientBanner: React.FC = () => {
               <div className="self-stretch flex items-center gap-1 text-base text-[#1F1F1F] my-auto">
                 <div className="self-stretch flex flex-col font-light whitespace-nowrap text-center leading-none justify-center w-7 my-auto px-0.5 py-1">
                   <div className="bg-neutral-200 w-6 h-6 fill-neutral-200 px-[3px] rounded-[50%] flex items-center justify-center">
-                    person
+                    <span className="material-icons">person</span>
                   </div>
                 </div>
                 <div className="font-bold self-stretch my-auto">
@@ -66,7 +67,7 @@ const PatientBanner: React.FC = () => {
               </div>
               <div className="rounded self-stretch flex text-[#1F1F1F] font-light whitespace-nowrap text-center leading-none w-6 my-auto">
                 <div className="rounded bg-[rgba(229,229,229,0)] w-6 h-6 px-0.5 flex items-center justify-center">
-                  visibility
+                  <span className="material-icons">visibility</span>
                 </div>
               </div>
             </div>
@@ -88,12 +89,14 @@ const PatientBanner: React.FC = () => {
               </div>
               <div className="self-stretch flex items-center gap-1 my-auto">
                 <div className="self-stretch flex items-stretch gap-1 overflow-hidden font-normal w-[68px] my-auto px-0.5">
-                  <div className="text-center text-base my-auto">timer</div>
+                  <div className="text-center text-base my-auto">
+                    <span className="material-icons">timer</span>
+                  </div>
                   <div className="text-sm leading-none">26 mins</div>
                 </div>
                 <div className="self-stretch flex text-base font-light whitespace-nowrap text-center leading-none w-6 my-auto rounded-[20px]">
                   <div className="rounded bg-[rgba(229,229,229,0)] w-6 h-6 px-0.5 flex items-center justify-center">
-                    expand_less
+                    <span className="material-icons">expand_less</span>
                   </div>
                 </div>
               </div>
@@ -112,10 +115,10 @@ const PatientBanner: React.FC = () => {
                 <div className="self-stretch gap-1">(641) 555-0197</div>
               </div>
               <div className="text-[#707070] whitespace-nowrap text-center w-4 px-0.5 py-[3px] rounded-md flex items-center justify-center">
-                message
+                <span className="material-icons">message</span>
               </div>
               <div className="text-[#D93737] whitespace-nowrap text-center w-4 p-[3px] rounded-md flex items-center justify-center">
-                phone_disabled
+                <span className="material-icons">phone_disabled</span>
               </div>
             </div>
             <div className="text-[#A6A6A6] text-[8px] font-semibold leading-4 self-stretch my-auto">
@@ -126,7 +129,7 @@ const PatientBanner: React.FC = () => {
                 charles.lawson@gmail.com
               </div>
               <div className="self-stretch text-base text-[#707070] font-light text-center leading-none w-4 my-auto px-0.5 py-1 rounded-md flex items-center justify-center">
-                mail
+                <span className="material-icons">mail</span>
               </div>
             </div>
           </div>
@@ -166,7 +169,7 @@ const PatientBanner: React.FC = () => {
               </div>
               <div className="self-stretch flex items-center gap-1 my-auto">
                 <div className="self-stretch text-base text-[#2EA843] font-light text-center leading-none w-4 my-auto px-[3px] py-0.5 flex items-center justify-center">
-                  verified_user
+                  <span className="material-icons">verified_user</span>
                 </div>
                 <div className="text-[#1F1F1F] text-ellipsis text-[13px] font-semibold leading-none self-stretch my-auto">
                   MediCal
@@ -254,3 +257,4 @@ const PatientBanner: React.FC = () => {
 };
 
 export default PatientBanner;
+
