@@ -1,5 +1,7 @@
+import React, { useRef } from "react";
+import { useTextSelection } from "@/hooks/use-text-selection";
+import SelectionToolbar from "@/components/ai-copilot/SelectionToolbar";
 
-import React from "react";
 interface RiskCardProps {
   title: string;
   icon: string;
@@ -10,6 +12,7 @@ interface RiskCardProps {
   ongoingActivities: React.ReactNode;
   cardHeight?: string;
 }
+
 const RiskCard: React.FC<RiskCardProps> = ({
   title,
   icon,
@@ -20,7 +23,25 @@ const RiskCard: React.FC<RiskCardProps> = ({
   ongoingActivities,
   cardHeight = "88px"
 }) => {
-  return <div className="min-w-60 flex-1 shrink basis-[0%]">
+  const containerRef = useRef<HTMLDivElement>(null);
+  const { selectedText, position } = useTextSelection(containerRef);
+
+  const handleAskCopilot = (text: string) => {
+    const questionInput = document.querySelector('input[placeholder="Type your message here..."]') as HTMLInputElement;
+    if (questionInput) {
+      questionInput.value = `Tell me more about "${text}" from the patient's records`;
+      questionInput.focus();
+      // Trigger form submission
+      const form = questionInput.closest('form');
+      if (form) {
+        const submitEvent = new Event('submit', { cancelable: true });
+        form.dispatchEvent(submitEvent);
+      }
+    }
+  };
+
+  return (
+    <div className="min-w-60 flex-1 shrink basis-[0%]" ref={containerRef}>
       <div className="w-full flex-1 p-3">
         <div className="flex w-full gap-2.5 whitespace-nowrap">
           <div className="items-center rounded bg-[#F4F4F4] flex gap-2 text-base text-[#1F1F1F] font-light text-center leading-none w-6 h-6 p-1">
@@ -52,8 +73,15 @@ const RiskCard: React.FC<RiskCardProps> = ({
           <div className="w-full mt-1">{ongoingActivities}</div>
         </div>
       </div>
-    </div>;
+      <SelectionToolbar
+        selectedText={selectedText}
+        position={position}
+        onAskClick={handleAskCopilot}
+      />
+    </div>
+  );
 };
+
 const RiskAssessment: React.FC = () => {
   return <section className="w-full mt-4 pb-4 px-4 max-md:max-w-full bg-neutral-50 rounded-lg">
       <div className="flex w-full max-md:max-w-full">
@@ -295,4 +323,5 @@ const RiskAssessment: React.FC = () => {
       </div>
     </section>;
 };
+
 export default RiskAssessment;
