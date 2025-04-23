@@ -1,3 +1,4 @@
+
 "use client";
 import React from "react";
 import PlatformHeader from "./header/PlatformHeader";
@@ -14,7 +15,7 @@ const C360Summary: React.FC = () => {
         <PlatformHeader />
         <PatientBanner />
       </div>
-      <div className="max-md:max-w-full" space={0}>
+      <div className="max-md:max-w-full">
         <div className="gap-5 flex max-md:flex-col max-md:items-stretch">
           <div className="w-[17%] max-md:w-full max-md:ml-0">
             <Sidebar />
