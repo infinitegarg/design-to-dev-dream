@@ -1,3 +1,4 @@
+
 import React from "react";
 interface RiskCardProps {
   title: string;
@@ -74,47 +75,68 @@ const RiskAssessment: React.FC = () => {
         </div>
       </div>
       <div className="flex w-full items-stretch gap-4 flex-wrap max-md:max-w-full">
-        <RiskCard title="CLINICAL" icon="health_and_safety" riskLevel="Moderate" riskColor="bg-[#FDE6CE] text-[#743208]" alerts={<div className="self-stretch z-0 flex w-full items-stretch gap-2 text-sm text-black font-normal leading-none mt-2">
-              <div className="bg-[#D93737] flex w-0.5 shrink-0 h-11 rounded-sm" />
+
+        {/* Clinical Risk - worsened data */}
+        <RiskCard
+          title="CLINICAL"
+          icon="health_and_safety"
+          riskLevel="High"
+          riskColor="bg-[#F9E2E2] text-[#631919]"
+          alerts={
+            <div className="self-stretch z-0 flex w-full items-stretch gap-2 text-sm text-black font-normal leading-none mt-2">
+              <div className="bg-[#D93737] flex w-0.5 shrink-0 h-14 rounded-sm" />
               <div className="min-w-60 flex-1 shrink basis-[0%] my-auto">
                 <div>
-                  <span className="font-bold">Diabetes:</span> HbA1c is at 7.8
+                  <span className="font-bold">Diabetes:</span> HbA1c is at 9.2 (poor control)
                 </div>
                 <div className="mt-1">
-                  <span className="font-bold">Immunization overdue:</span>{" "}
-                  Influenza, since Dec' 2024
+                  <span className="font-bold">Blood Pressure:</span> 158/99 (severely elevated, last 2 visits)
+                </div>
+                <div className="mt-1">
+                  <span className="font-bold">Immunization overdue:</span> Influenza & Pneumococcal, >1 year
+                </div>
+                <div className="mt-1">
+                  <span className="font-bold">Recent ER Visit:</span> For chest pain 2 weeks ago
                 </div>
               </div>
-            </div>} recommendations={<>
+            </div>
+          }
+          recommendations={
+            <>
               <div className="flex w-full gap-2">
                 <span className="material-icons text-base text-[#2F2F2F] font-light whitespace-nowrap text-center leading-none w-4 p-0.5">
-                  event
+                  event_busy
                 </span>
                 <div className="text-[#1F1F1F] text-ellipsis text-xs font-semibold leading-none flex-1 shrink basis-[0%]">
-                  <span className="font-normal">Schedule visit for</span>{" "}
-                  Diabetes Management
+                  Urgently schedule primary care follow-up for hypertension and diabetes
                 </div>
               </div>
               <div className="flex w-full gap-2 mt-2">
                 <span className="material-icons text-base text-[#2F2F2F] font-light whitespace-nowrap text-center leading-none w-4 p-0.5">
-                  event
+                  vaccine
                 </span>
                 <div className="text-[#1F1F1F] text-ellipsis text-xs font-semibold leading-none flex-1 shrink basis-[0%]">
-                  <span className="font-normal">Schedule visit for</span>{" "}
-                  Immunization: Influenza
+                  Administer overdue influenza and pneumococcal vaccines
                 </div>
               </div>
-            </>} ongoingActivities={<>
-              <div className="flex w-full gap-2">
+              <div className="flex w-full gap-2 mt-2">
                 <span className="material-icons text-base text-[#2F2F2F] font-light whitespace-nowrap text-center leading-none w-4 p-0.5">
-                  fact_check
+                  add_alert
                 </span>
                 <div className="text-[#1F1F1F] text-ellipsis text-xs font-semibold leading-none flex-1 shrink basis-[0%]">
-                  <span className="text-[#0070DD]">Diabetes Management</span>
-                  <span className="font-normal">
-                    {" "}
-                    Care Protocol in progress
-                  </span>
+                  Refer to cardiology and diabetes educator
+                </div>
+              </div>
+            </>
+          }
+          ongoingActivities={
+            <>
+              <div className="flex w-full gap-2">
+                <span className="material-icons text-base text-[#2F2F2F] font-light whitespace-nowrap text-center leading-none w-4 p-0.5">
+                  medical_services
+                </span>
+                <div className="text-[#1F1F1F] text-ellipsis text-xs font-semibold leading-none flex-1 shrink basis-[0%]">
+                  Blood glucose and BP logs being collected
                 </div>
               </div>
               <div className="flex w-full gap-2 mt-2">
@@ -122,54 +144,75 @@ const RiskAssessment: React.FC = () => {
                   notifications
                 </span>
                 <div className="text-[#1F1F1F] text-ellipsis text-xs font-semibold leading-none flex-1 shrink basis-[0%]">
-                  <span className="text-[#0070DD]">Automated reminders</span>{" "}
-                  <span className="font-normal">being sent for </span>
-                  Immunization.
+                  Automated reminders sent for clinic appointments 
                 </div>
               </div>
-            </>} />
+            </>
+          }
+        />
 
-        <RiskCard title="Social" icon="group" riskLevel="High" riskColor="bg-[#F9E2E2] text-[#631919]" cardHeight="108px" alerts={<div className="self-stretch z-0 flex w-full items-stretch gap-2 text-sm text-black font-normal mt-2">
-              <div className="bg-[#D93737] flex w-0.5 shrink-0 h-16 rounded-sm" />
+        {/* Social Risk - worsened data */}
+        <RiskCard
+          title="Social"
+          icon="group"
+          riskLevel="High"
+          riskColor="bg-[#F9E2E2] text-[#631919]"
+          cardHeight="122px"
+          alerts={
+            <div className="self-stretch z-0 flex w-full items-stretch gap-2 text-sm text-black font-normal mt-2">
+              <div className="bg-[#D93737] flex w-0.5 shrink-0 h-[56px] rounded-sm" />
               <div className="min-w-60 flex-1 shrink basis-[0%] my-auto">
                 <div className="leading-5">
-                  <span className="font-bold">Homelessness:</span> Housing
-                  program expires on Jan 25
+                  <span className="font-bold">Homelessness:</span> Housing program expired; staying in shelter
+                </div>
+                <div className="leading-5 mt-1">
+                  <span className="font-bold">Recent eviction:</span> 1 week ago
                 </div>
                 <div className="leading-none mt-1">
-                  <span className="font-bold">Financial instability:</span> No
-                  verified income source
+                  <span className="font-bold">Food insecurity:</span> Not enrolled in food benefit programs
+                </div>
+                <div className="leading-none mt-1">
+                  <span className="font-bold">Legal issues:</span> Court date pending for misdemeanors
                 </div>
               </div>
-            </div>} recommendations={<>
+            </div>
+          }
+          recommendations={
+            <>
               <div className="flex w-full gap-2">
                 <span className="material-icons text-base text-[#2F2F2F] font-light whitespace-nowrap text-center leading-none w-4 px-[3px] py-0.5">
-                  upload_file
+                  home
                 </span>
                 <div className="text-[#1F1F1F] text-ellipsis text-xs font-semibold leading-4 flex-1 shrink basis-[0%]">
-                  <span className="font-normal">Add </span>
-                  Housing Support Documents
-                  <span className="font-normal"> for permanent placement</span>
+                  Refer to social work for urgent rehousing
                 </div>
               </div>
               <div className="flex w-full gap-2 mt-2">
                 <span className="material-icons text-base text-[#2F2F2F] font-light whitespace-nowrap text-center leading-none w-4 px-[3px] py-0.5">
-                  upload_file
+                  local_grocery_store
                 </span>
                 <div className="text-[#1F1F1F] text-ellipsis text-xs font-semibold leading-none flex-1 shrink basis-[0%]">
-                  <span className="font-normal">Add </span>
-                  Income Verification Documents
-                  <span className="font-normal"> for financial aid</span>
+                  Enroll in SNAP & local food assistance
                 </div>
               </div>
-            </>} ongoingActivities={<>
+              <div className="flex w-full gap-2 mt-2">
+                <span className="material-icons text-base text-[#2F2F2F] font-light whitespace-nowrap text-center leading-none w-4 px-[3px] py-0.5">
+                  gavel
+                </span>
+                <div className="text-[#1F1F1F] text-ellipsis text-xs font-semibold leading-none flex-1 shrink basis-[0%]">
+                  Connect with legal aid services
+                </div>
+              </div>
+            </>
+          }
+          ongoingActivities={
+            <>
               <div className="flex w-full gap-2">
                 <span className="material-icons text-base text-[#2F2F2F] font-light whitespace-nowrap text-center leading-none w-4 p-0.5">
                   fact_check
                 </span>
                 <div className="text-[#1F1F1F] text-ellipsis text-xs font-semibold leading-none flex-1 shrink basis-[0%]">
-                  ID Verification Pending
-                  <span className="font-normal"> for Health Homes Program</span>
+                  Applied for housing voucher (pending)
                 </div>
               </div>
               <div className="flex w-full gap-2 mt-2">
@@ -177,28 +220,78 @@ const RiskAssessment: React.FC = () => {
                   notifications
                 </span>
                 <div className="text-[#1F1F1F] text-ellipsis text-xs font-semibold leading-none flex-1 shrink basis-[0%]">
-                  <span className="font-normal">Enrolled in </span>
-                  CalWorkforce Dev <span className="font-normal">Program</span>
+                  Waiting list for food bank enrollment
                 </div>
               </div>
-            </>} />
+            </>
+          }
+        />
 
-        <RiskCard title="Behavioral" icon="psychology" riskLevel="Low" riskColor="bg-neutral-200 text-[#1F1F1F]" cardHeight="84px" alerts={<div className="self-stretch z-0 flex w-full items-stretch gap-2 text-sm text-black font-normal leading-5 mt-2">
-              <div className="bg-[#D93737] flex w-0.5 shrink-0 h-10 rounded-sm" />
+        {/* Behavioral Risk - worsened data */}
+        <RiskCard
+          title="Behavioral"
+          icon="psychology"
+          riskLevel="Moderate"
+          riskColor="bg-[#FDE6CE] text-[#743208]"
+          cardHeight="98px"
+          alerts={
+            <div className="self-stretch z-0 flex w-full items-stretch gap-2 text-sm text-black font-normal leading-5 mt-2">
+              <div className="bg-[#D93737] flex w-0.5 shrink-0 h-12 rounded-sm" />
               <div className="min-w-60 flex-1 shrink basis-[0%] my-auto">
-                <span className="font-bold">Mental Health:</span> Counselling
-                sessions not scheduled
+                <div>
+                  <span className="font-bold">Mental Health:</span> Diagnosed depression - missed last 2 therapy appointments
+                </div>
+                <div className="mt-1">
+                  <span className="font-bold">Substance Use:</span> Reports resumed alcohol use
+                </div>
+                <div className="mt-1">
+                  <span className="font-bold">Medication:</span> Stopped antidepressant, reports side effects
+                </div>
               </div>
-            </div>} recommendations={<div className="flex w-full gap-2">
-              <span className="material-icons text-base text-[#2F2F2F] font-light whitespace-nowrap text-center leading-none w-4 px-0.5 py-[3px]">
-                create_new_folder
-              </span>
-              <div className="text-[#1F1F1F] text-ellipsis text-xs font-semibold leading-none flex-1 shrink basis-[0%]">
-                <span className="font-normal">Enrol patient in </span>
-                ACCESS Program
-                <span className="font-normal"> for mental health</span>
+            </div>
+          }
+          recommendations={
+            <div>
+              <div className="flex w-full gap-2">
+                <span className="material-icons text-base text-[#2F2F2F] font-light whitespace-nowrap text-center leading-none w-4 px-0.5 py-[3px]">
+                  schedule
+                </span>
+                <div className="text-[#1F1F1F] text-ellipsis text-xs font-semibold leading-none flex-1 shrink basis-[0%]">
+                  Contact for urgent behavioral health care management
+                </div>
               </div>
-            </div>} ongoingActivities={<></>} />
+              <div className="flex w-full gap-2 mt-2">
+                <span className="material-icons text-base text-[#2F2F2F] font-light whitespace-nowrap text-center leading-none w-4 px-0.5 py-[3px]">
+                  medication
+                </span>
+                <div className="text-[#1F1F1F] text-ellipsis text-xs font-semibold leading-none flex-1 shrink basis-[0%]">
+                  Review and restart appropriate antidepressant regimen
+                </div>
+              </div>
+              <div className="flex w-full gap-2 mt-2">
+                <span className="material-icons text-base text-[#2F2F2F] font-light whitespace-nowrap text-center leading-none w-4 px-0.5 py-[3px]">
+                  group_work
+                </span>
+                <div className="text-[#1F1F1F] text-ellipsis text-xs font-semibold leading-none flex-1 shrink basis-[0%]">
+                  Refer to substance use counseling
+                </div>
+              </div>
+            </div>
+          }
+          ongoingActivities={
+            <>
+              <div className="flex w-full gap-2">
+                <span className="material-icons text-base text-[#2F2F2F] font-light whitespace-nowrap text-center leading-none w-4 p-0.5">
+                  support
+                </span>
+                <div className="text-[#1F1F1F] text-ellipsis text-xs font-semibold leading-none flex-1 shrink basis-[0%]">
+                  Referral to behavioral health team in progress
+                </div>
+              </div>
+            </>
+          }
+        />
+
       </div>
     </section>;
 };
