@@ -11,6 +11,8 @@ import {
   SidebarFooter,
   SidebarRail
 } from "@/components/ui/sidebar";
+import { SidebarClose } from "@/components/ui/drawer"; // Import SidebarClose for the close button
+import { X } from "lucide-react"; // Lucide close icon
 import { useToast } from "@/hooks/use-toast";
 import CopilotSuggestionButton from "./CopilotSuggestionButton";
 
@@ -27,17 +29,12 @@ const AICopilot: React.FC = () => {
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
-    
     if (!inputValue.trim()) return;
-    
-    // Add user message
     const userMessage: Message = { role: "user", content: inputValue };
     setMessages((prev) => [...prev, userMessage]);
     setInputValue("");
     setIsLoading(true);
-    
     try {
-      // Simulate AI response (in a real app, this would be an API call)
       setTimeout(() => {
         const aiResponse: Message = { 
           role: "assistant", 
@@ -71,9 +68,24 @@ const AICopilot: React.FC = () => {
 
   return (
     <SidebarProvider defaultOpen={true}>
-      <Sidebar side="right" variant="sidebar" className="border-l border-gray-200">
+      <Sidebar 
+        side="right" 
+        variant="sidebar" 
+        className="border-l border-gray-200 min-w-[400px]" // Enforce min width
+      >
         <SidebarRail />
-        <SidebarHeader className="flex flex-col items-center p-4 border-b">
+        <SidebarHeader className="relative flex flex-col items-center p-4 border-b">
+          {/* Close button in the top right */}
+          <SidebarClose asChild>
+            <Button 
+              size="icon" 
+              variant="ghost" 
+              className="absolute right-2 top-2 z-10"
+              aria-label="Close sidebar"
+            >
+              <X className="w-5 h-5" />
+            </Button>
+          </SidebarClose>
           <div className="w-16 h-16 mb-2">
             <img 
               src="/lovable-uploads/7ba51120-a6da-421d-b781-2d96cb842dd0.png" 
@@ -159,3 +171,4 @@ const AICopilot: React.FC = () => {
 };
 
 export default AICopilot;
+
