@@ -93,7 +93,7 @@ const RiskAssessment: React.FC = () => {
                   <span className="font-bold">Blood Pressure:</span> 158/99 (severely elevated, last 2 visits)
                 </div>
                 <div className="mt-1">
-                  <span className="font-bold">Immunization overdue:</span> Influenza & Pneumococcal, >1 year
+                  <span className="font-bold">Immunization overdue:</span> Influenza &amp; Pneumococcal, {'>'}1 year
                 </div>
                 <div className="mt-1">
                   <span className="font-bold">Recent ER Visit:</span> For chest pain 2 weeks ago
@@ -192,7 +192,7 @@ const RiskAssessment: React.FC = () => {
                   local_grocery_store
                 </span>
                 <div className="text-[#1F1F1F] text-ellipsis text-xs font-semibold leading-none flex-1 shrink basis-[0%]">
-                  Enroll in SNAP & local food assistance
+                  Enroll in SNAP &amp; local food assistance
                 </div>
               </div>
               <div className="flex w-full gap-2 mt-2">
