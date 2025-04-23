@@ -1,5 +1,3 @@
-
-"use client";
 import React from "react";
 import PlatformHeader from "./header/PlatformHeader";
 import PatientBanner from "./header/PatientBanner";
