@@ -1,4 +1,3 @@
-"use client";
 
 import React, { useState } from "react";
 import { Input } from "@/components/ui/input";
@@ -7,7 +6,6 @@ import { SidebarProvider, Sidebar, SidebarContent, SidebarHeader, SidebarFooter,
 import { X } from "lucide-react";
 import { useToast } from "@/hooks/use-toast";
 import CopilotSuggestionButton from "./CopilotSuggestionButton";
-import { Bot } from "lucide-react";
 
 interface Message {
   role: "user" | "assistant";
@@ -82,7 +80,11 @@ const AICopilot: React.FC = () => {
         <SidebarRail />
         <SidebarHeader className="flex flex-row items-center justify-between border-b py-3 px-4 bg-white">
           <div className="flex items-center gap-2">
-            <Bot size={22} className="text-[#9b87f5]" />
+            <img 
+              src="/lovable-uploads/a1d6738d-1b1a-4519-a4bb-e1d83207fb73.png" 
+              alt="Copilot" 
+              className="w-6 h-6"
+            />
             <h2 className="text-lg font-bold text-gray-800 tracking-tight">Copilot</h2>
           </div>
           <Button size="icon" variant="ghost" className="rounded-md text-gray-500 hover:text-gray-700 focus:outline-none" aria-label="Close sidebar" onClick={handleCloseSidebar}>
@@ -142,3 +144,4 @@ const AICopilot: React.FC = () => {
 };
 
 export default AICopilot;
+
