@@ -1,4 +1,3 @@
-
 import React, { useState } from "react";
 import { Input } from "@/components/ui/input";
 import { Button } from "@/components/ui/button";
@@ -49,22 +48,28 @@ const AICopilot: React.FC = () => {
     }
   };
 
-  const suggestions = [{
-    label: "Quality",
-    query: "What's the quality of care for this patient?"
-  }, {
-    label: "Risk",
-    query: "What are the risk factors for this patient?"
-  }, {
-    label: "Cost",
-    query: "What are the costs associated with this patient's care?"
-  }, {
-    label: "Utilization",
-    query: "How often has this patient utilized our services?"
-  }, {
-    label: "Attribution",
-    query: "Who is the primary care provider for this patient?"
-  }];
+  const suggestions = [
+    {
+      label: "Patient Overview",
+      query: "What are the key highlights about Charles Lawson in the past 12 months?"
+    },
+    {
+      label: "Clinical History",
+      query: "Summarize Charles Lawson's recent diagnoses and clinical events."
+    },
+    {
+      label: "Housing Situation",
+      query: "How has Charles Lawson's housing status impacted his care this year?"
+    },
+    {
+      label: "Behavioral Health",
+      query: "Are there any notable behavioral or cognitive trends for this patient?"
+    },
+    {
+      label: "Care Planning",
+      query: "What next steps would you recommend for Charles Lawson's ongoing care?"
+    }
+  ];
 
   const handleSuggestionClick = (query: string) => {
     setInputValue(query);
@@ -144,4 +149,3 @@ const AICopilot: React.FC = () => {
 };
 
 export default AICopilot;
-
