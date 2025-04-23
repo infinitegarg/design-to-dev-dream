@@ -7,6 +7,7 @@ import Sidebar from "./sidebar/Sidebar";
 import Overview from "./content/Overview";
 import VisitTimeline from "./content/VisitTimeline";
 import RiskAssessment from "./content/RiskAssessment";
+import AICopilot from "../ai-copilot/AICopilot";
 
 const C360Summary: React.FC = () => {
   return (
@@ -20,7 +21,7 @@ const C360Summary: React.FC = () => {
           <div className="w-[17%] max-md:w-full max-md:ml-0">
             <Sidebar />
           </div>
-          <div className="w-[83%] ml-5 max-md:w-full max-md:ml-0">
+          <div className="w-[63%] ml-5 max-md:w-full max-md:ml-0">
             <div className="w-full pb-4 max-md:max-w-full">
               <div className="items-center bg-[#F4F4F4] flex w-full gap-4 overflow-hidden flex-wrap max-md:max-w-full">
                 <div className="self-stretch flex min-w-60 flex-col flex-1 shrink basis-4 my-auto max-md:max-w-full">
@@ -120,6 +121,9 @@ const C360Summary: React.FC = () => {
                 </div>
               </div>
             </div>
+          </div>
+          <div className="w-[20%] max-md:w-full max-md:ml-0">
+            <AICopilot />
           </div>
         </div>
       </div>
