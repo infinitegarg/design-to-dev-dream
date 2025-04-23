@@ -1,3 +1,4 @@
+
 "use client";
 import React, { useState } from "react";
 import { Input } from "@/components/ui/input";
@@ -10,7 +11,6 @@ import {
   SidebarFooter,
   SidebarRail
 } from "@/components/ui/sidebar";
-import { DrawerClose } from "@/components/ui/drawer"; // Changed from SidebarClose to DrawerClose
 import { X } from "lucide-react"; 
 import { useToast } from "@/hooks/use-toast";
 import CopilotSuggestionButton from "./CopilotSuggestionButton";
@@ -65,6 +65,14 @@ const AICopilot: React.FC = () => {
     setInputValue(query);
   };
 
+  // Get the sidebar context to control sidebar visibility
+  const handleCloseSidebar = () => {
+    // Using the useSidebar hook would require moving this to a separate component
+    // For now, we'll use the default collapsed state through the provider
+    document.cookie = "sidebar:state=collapsed; path=/; max-age=604800";
+    window.location.reload(); // Force refresh to apply the cookie change
+  };
+
   return (
     <SidebarProvider defaultOpen={true}>
       <Sidebar 
@@ -74,17 +82,16 @@ const AICopilot: React.FC = () => {
       >
         <SidebarRail />
         <SidebarHeader className="relative flex flex-col items-center p-4 border-b">
-          {/* Close button in the top right */}
-          <DrawerClose asChild>
-            <Button 
-              size="icon" 
-              variant="ghost" 
-              className="absolute right-2 top-2 z-10"
-              aria-label="Close sidebar"
-            >
-              <X className="w-5 h-5" />
-            </Button>
-          </DrawerClose>
+          {/* Close button in the top right - using a regular button for closing */}
+          <Button 
+            size="icon" 
+            variant="ghost" 
+            className="absolute right-2 top-2 z-10"
+            aria-label="Close sidebar"
+            onClick={handleCloseSidebar}
+          >
+            <X className="w-5 h-5" />
+          </Button>
           <div className="w-16 h-16 mb-2">
             <img 
               src="/lovable-uploads/7ba51120-a6da-421d-b781-2d96cb842dd0.png" 
