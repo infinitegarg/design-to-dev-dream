@@ -1,3 +1,4 @@
+
 import React from "react";
 
 const VisitTimeline: React.FC = () => {
@@ -7,9 +8,9 @@ const VisitTimeline: React.FC = () => {
         <div className="flex min-w-60 w-full items-center gap-[40px_100px] justify-between flex-wrap flex-1 shrink basis-[0%] py-2 max-md:max-w-full">
           <div className="self-stretch flex items-center gap-4 overflow-hidden my-auto">
             <div className="self-stretch flex items-center gap-3 text-base justify-center my-auto">
-              <div className="self-stretch text-[#2F2F2F] font-normal whitespace-nowrap text-center leading-none w-4 my-auto px-1 py-0.5">
+              <span className="material-icons self-stretch text-[#2F2F2F] font-normal whitespace-nowrap text-center leading-none w-4 my-auto px-1 py-0.5">
                 directions_walk
-              </div>
+              </span>
               <div className="text-[#151414] font-bold self-stretch my-auto">
                 Visit Timeline
               </div>

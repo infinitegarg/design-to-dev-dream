@@ -69,9 +69,9 @@ const RiskAssessment: React.FC = () => {
         <div className="flex min-w-60 w-full items-center gap-[40px_100px] justify-between flex-wrap flex-1 shrink basis-[0%] py-2 max-md:max-w-full">
           <div className="self-stretch flex items-center gap-4 overflow-hidden my-auto">
             <div className="self-stretch flex items-center gap-3 text-base whitespace-nowrap justify-center my-auto">
-              <div className="self-stretch text-[#2F2F2F] font-normal text-center leading-none w-4 my-auto px-0.5 py-[3px]">
+              <span className="material-icons self-stretch text-[#2F2F2F] font-normal text-center leading-none w-4 my-auto px-0.5 py-[3px]">
                 favorite
-              </div>
+              </span>
               <div className="text-[#151414] font-bold self-stretch my-auto">
                 Risk
               </div>
@@ -106,18 +106,18 @@ const RiskAssessment: React.FC = () => {
           recommendations={
             <>
               <div className="flex w-full gap-2">
-                <div className="text-base text-[#2F2F2F] font-light whitespace-nowrap text-center leading-none w-4 p-0.5">
+                <span className="material-icons text-base text-[#2F2F2F] font-light whitespace-nowrap text-center leading-none w-4 p-0.5">
                   event
-                </div>
+                </span>
                 <div className="text-[#1F1F1F] text-ellipsis text-xs font-semibold leading-none flex-1 shrink basis-[0%]">
                   <span className="font-normal">Schedule visit for</span>{" "}
                   Diabetes Management
                 </div>
               </div>
               <div className="flex w-full gap-2 mt-2">
-                <div className="text-base text-[#2F2F2F] font-light whitespace-nowrap text-center leading-none w-4 p-0.5">
+                <span className="material-icons text-base text-[#2F2F2F] font-light whitespace-nowrap text-center leading-none w-4 p-0.5">
                   event
-                </div>
+                </span>
                 <div className="text-[#1F1F1F] text-ellipsis text-xs font-semibold leading-none flex-1 shrink basis-[0%]">
                   <span className="font-normal">Schedule visit for</span>{" "}
                   Immunization: Influenza
@@ -128,9 +128,9 @@ const RiskAssessment: React.FC = () => {
           ongoingActivities={
             <>
               <div className="flex w-full gap-2">
-                <div className="text-base text-[#2F2F2F] font-light whitespace-nowrap text-center leading-none w-4 p-0.5">
+                <span className="material-icons text-base text-[#2F2F2F] font-light whitespace-nowrap text-center leading-none w-4 p-0.5">
                   fact_check
-                </div>
+                </span>
                 <div className="text-[#1F1F1F] text-ellipsis text-xs font-semibold leading-none flex-1 shrink basis-[0%]">
                   <span className="text-[#0070DD]">Diabetes Management</span>
                   <span className="font-normal">
@@ -140,9 +140,9 @@ const RiskAssessment: React.FC = () => {
                 </div>
               </div>
               <div className="flex w-full gap-2 mt-2">
-                <div className="text-base text-[#2F2F2F] font-light whitespace-nowrap text-center leading-none w-4 px-[3px] py-0.5">
+                <span className="material-icons text-base text-[#2F2F2F] font-light whitespace-nowrap text-center leading-none w-4 px-[3px] py-0.5">
                   notifications
-                </div>
+                </span>
                 <div className="text-[#1F1F1F] text-ellipsis text-xs font-semibold leading-none flex-1 shrink basis-[0%]">
                   <span className="text-[#0070DD]">Automated reminders</span>{" "}
                   <span className="font-normal">being sent for </span>
@@ -177,9 +177,9 @@ const RiskAssessment: React.FC = () => {
           recommendations={
             <>
               <div className="flex w-full gap-2">
-                <div className="text-base text-[#2F2F2F] font-light whitespace-nowrap text-center leading-none w-4 px-[3px] py-0.5">
+                <span className="material-icons text-base text-[#2F2F2F] font-light whitespace-nowrap text-center leading-none w-4 px-[3px] py-0.5">
                   upload_file
-                </div>
+                </span>
                 <div className="text-[#1F1F1F] text-ellipsis text-xs font-semibold leading-4 flex-1 shrink basis-[0%]">
                   <span className="font-normal">Add </span>
                   Housing Support Documents
@@ -187,9 +187,9 @@ const RiskAssessment: React.FC = () => {
                 </div>
               </div>
               <div className="flex w-full gap-2 mt-2">
-                <div className="text-base text-[#2F2F2F] font-light whitespace-nowrap text-center leading-none w-4 px-[3px] py-0.5">
+                <span className="material-icons text-base text-[#2F2F2F] font-light whitespace-nowrap text-center leading-none w-4 px-[3px] py-0.5">
                   upload_file
-                </div>
+                </span>
                 <div className="text-[#1F1F1F] text-ellipsis text-xs font-semibold leading-none flex-1 shrink basis-[0%]">
                   <span className="font-normal">Add </span>
                   Income Verification Documents
@@ -201,18 +201,18 @@ const RiskAssessment: React.FC = () => {
           ongoingActivities={
             <>
               <div className="flex w-full gap-2">
-                <div className="text-base text-[#2F2F2F] font-light whitespace-nowrap text-center leading-none w-4 p-0.5">
+                <span className="material-icons text-base text-[#2F2F2F] font-light whitespace-nowrap text-center leading-none w-4 p-0.5">
                   fact_check
-                </div>
+                </span>
                 <div className="text-[#1F1F1F] text-ellipsis text-xs font-semibold leading-none flex-1 shrink basis-[0%]">
                   ID Verification Pending
                   <span className="font-normal"> for Health Homes Program</span>
                 </div>
               </div>
               <div className="flex w-full gap-2 mt-2">
-                <div className="text-base text-[#2F2F2F] font-light whitespace-nowrap text-center leading-none w-4 px-[3px] py-0.5">
+                <span className="material-icons text-base text-[#2F2F2F] font-light whitespace-nowrap text-center leading-none w-4 px-[3px] py-0.5">
                   notifications
-                </div>
+                </span>
                 <div className="text-[#1F1F1F] text-ellipsis text-xs font-semibold leading-none flex-1 shrink basis-[0%]">
                   <span className="font-normal">Enrolled in </span>
                   CalWorkforce Dev <span className="font-normal">Program</span>
@@ -239,9 +239,9 @@ const RiskAssessment: React.FC = () => {
           }
           recommendations={
             <div className="flex w-full gap-2">
-              <div className="text-base text-[#2F2F2F] font-light whitespace-nowrap text-center leading-none w-4 px-0.5 py-[3px]">
+              <span className="material-icons text-base text-[#2F2F2F] font-light whitespace-nowrap text-center leading-none w-4 px-0.5 py-[3px]">
                 create_new_folder
-              </div>
+              </span>
               <div className="text-[#1F1F1F] text-ellipsis text-xs font-semibold leading-none flex-1 shrink basis-[0%]">
                 <span className="font-normal">Enrol patient in </span>
                 ACCESS Program
