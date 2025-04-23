@@ -1,4 +1,5 @@
-import React from "react";
+
+import React, { useState } from "react";
 import PlatformHeader from "./header/PlatformHeader";
 import PatientBanner from "./header/PatientBanner";
 import Sidebar from "./sidebar/Sidebar";
@@ -6,8 +7,18 @@ import Overview from "./content/Overview";
 import VisitTimeline from "./content/VisitTimeline";
 import RiskAssessment from "./content/RiskAssessment";
 import AICopilot from "../ai-copilot/AICopilot";
+import Housing from "./content/Housing";
+
+const TABS = [
+  { label: "Summary", icon: "grid_view" },
+  { label: "Clinical", icon: "ecg_heart" },
+  { label: "Housing", icon: "house" },
+  { label: "Behavioral", icon: "cognition" }
+];
 
 const C360Summary: React.FC = () => {
+  const [activeTab, setActiveTab] = useState("Summary");
+
   return (
     <div className="bg-[#F4F4F4]">
       <div className="max-md:max-w-full">
@@ -24,50 +35,30 @@ const C360Summary: React.FC = () => {
               <div className="items-center bg-[#F4F4F4] flex w-full gap-4 overflow-hidden flex-wrap max-md:max-w-full">
                 <div className="self-stretch flex min-w-60 flex-col flex-1 shrink basis-4 my-auto max-md:max-w-full">
                   <div className="z-10 flex items-center text-[#707070] whitespace-nowrap pl-1">
-                    <div className="self-stretch flex min-h-12 flex-col items-stretch text-[#0070DD] justify-center w-[110px] my-auto pt-3 px-3">
-                      <div className="flex items-center gap-2">
-                        <span className="material-icons self-stretch text-base font-light text-center leading-none w-4 my-auto p-0.5">
-                          grid_view
-                        </span>
-                        <div className="text-ellipsis text-sm font-semibold leading-5 self-stretch my-auto">
-                          Summary
+                    {TABS.map((tab) => (
+                      <button
+                        key={tab.label}
+                        className={`self-stretch flex min-h-12 flex-col items-stretch justify-center ${
+                          activeTab === tab.label ? "w-[110px]" : "w-[94px]"
+                        } my-auto pt-3 px-3 
+                          transition-all duration-150`}
+                        onClick={() => setActiveTab(tab.label)}
+                        style={{ cursor: "pointer" }}
+                      >
+                        <div className="flex items-center gap-2">
+                          <span className="material-icons self-stretch text-base font-light text-center leading-none w-4 my-auto p-0.5">
+                            {tab.icon}
+                          </span>
+                          <div className={`text-ellipsis text-sm font-semibold leading-5 self-stretch my-auto`}>
+                            {tab.label}
+                          </div>
                         </div>
-                      </div>
-                      <div className="bg-[#0070DD] flex min-h-0.5 w-full mt-3.5 rounded-[1px_1px_0px_0px]" />
-                    </div>
-                    <div className="self-stretch flex min-h-12 flex-col items-stretch justify-center w-[94px] my-auto pt-3 px-3">
-                      <div className="flex items-center gap-2">
-                        <span className="material-icons self-stretch text-base font-light text-center leading-none w-4 my-auto p-0.5">
-                          ecg_heart
-                        </span>
-                        <div className="text-ellipsis text-sm font-semibold leading-5 self-stretch my-auto">
-                          Clinical
-                        </div>
-                      </div>
-                      <div className="flex min-h-0.5 w-full mt-3.5" />
-                    </div>
-                    <div className="self-stretch flex min-h-12 flex-col items-stretch justify-center w-[102px] my-auto pt-3 px-3">
-                      <div className="flex items-center gap-2">
-                        <span className="material-icons self-stretch text-base font-light text-center leading-none w-4 my-auto p-[3px]">
-                          house
-                        </span>
-                        <div className="text-ellipsis text-sm font-semibold leading-5 self-stretch my-auto">
-                          Housing
-                        </div>
-                      </div>
-                      <div className="flex min-h-0.5 w-full mt-3.5" />
-                    </div>
-                    <div className="self-stretch flex min-h-12 flex-col items-stretch justify-center w-[115px] my-auto pt-3 px-3">
-                      <div className="flex items-center gap-2">
-                        <span className="material-icons self-stretch text-base font-light text-center leading-none w-4 my-auto p-0.5">
-                          cognition
-                        </span>
-                        <div className="text-ellipsis text-sm font-semibold leading-5 self-stretch my-auto">
-                          Behavioral
-                        </div>
-                      </div>
-                      <div className="flex min-h-0.5 w-full mt-3.5" />
-                    </div>
+                        <div className={`
+                          flex min-h-0.5 w-full mt-3.5 rounded-[1px_1px_0px_0px] 
+                          ${activeTab === tab.label ? "bg-[#0070DD]" : ""}
+                        `} />
+                      </button>
+                    ))}
                   </div>
                   <div className="flex mr-[-296px] min-h-px gap-2.5">
                     <div className="bg-[#C5C5C5] flex min-h-px min-w-60 w-full flex-1 shrink basis-[0%] max-md:max-w-full" />
@@ -103,19 +94,29 @@ const C360Summary: React.FC = () => {
               </div>
               <div className="flex w-full items-center gap-1 text-xs text-center flex-wrap mt-1 pl-4 max-md:max-w-full">
                 <div className="text-[#707070] font-semibold leading-4 self-stretch my-auto">
-                  Showing summary for
+                  {activeTab === "Summary" ? "Showing summary for" : activeTab === "Housing" ? "Housing data for" : ""}
                 </div>
                 <div className="self-stretch gap-0.5 text-black font-extrabold uppercase tracking-[0.5px] leading-6 my-auto">
-                  Mar'24 - Feb'25
+                  {activeTab === "Summary" || activeTab === "Housing"
+                    ? "Mar'24 - Feb'25"
+                    : ""}
                 </div>
               </div>
               <div className="min-h-[833px] max-w-full w-[1200px] mt-1 px-4">
                 <div className="w-full max-md:max-w-full">
-                  <div className="flex w-full items-stretch gap-4 flex-wrap max-md:max-w-full">
-                    <Overview />
-                    <VisitTimeline />
-                  </div>
-                  <RiskAssessment />
+                  {activeTab === "Summary" && (
+                    <>
+                      <div className="flex w-full items-stretch gap-4 flex-wrap max-md:max-w-full">
+                        <Overview />
+                        <VisitTimeline />
+                      </div>
+                      <RiskAssessment />
+                    </>
+                  )}
+                  {activeTab === "Housing" && (
+                    <Housing />
+                  )}
+                  {/* can implement other tabs similarly */}
                 </div>
               </div>
             </div>
@@ -130,3 +131,4 @@ const C360Summary: React.FC = () => {
 };
 
 export default C360Summary;
+
