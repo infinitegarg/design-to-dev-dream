@@ -26,7 +26,7 @@ const RiskCard: React.FC<RiskCardProps> = ({
       <div className="w-full flex-1 p-3">
         <div className="flex w-full gap-2.5 whitespace-nowrap">
           <div className="items-center rounded bg-[#F4F4F4] flex gap-2 text-base text-[#1F1F1F] font-light text-center leading-none w-6 h-6 p-1">
-            <div className="self-stretch w-4 my-auto p-0.5">{icon}</div>
+            <span className="material-icons self-stretch w-4 my-auto p-0.5">{icon}</span>
           </div>
           <div className="text-[#1F1F1F] text-xs font-extrabold leading-6 tracking-[0.5px] uppercase flex-1 shrink basis-[0%]">
             {title}

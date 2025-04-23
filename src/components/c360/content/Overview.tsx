@@ -1,3 +1,4 @@
+
 import React from "react";
 
 const Overview: React.FC = () => {
@@ -7,9 +8,9 @@ const Overview: React.FC = () => {
         <div className="flex min-w-60 w-full items-center gap-[40px_100px] justify-between flex-wrap flex-1 shrink basis-[0%] py-2 max-md:max-w-full">
           <div className="self-stretch flex items-center gap-4 overflow-hidden my-auto">
             <div className="self-stretch flex items-center gap-3 text-base whitespace-nowrap justify-center my-auto">
-              <div className="self-stretch text-[#2F2F2F] font-normal text-center leading-none w-4 my-auto p-0.5">
+              <span className="material-icons self-stretch text-[#2F2F2F] font-normal text-center leading-none w-4 my-auto p-0.5">
                 overview
-              </div>
+              </span>
               <div className="text-[#151414] font-bold self-stretch my-auto">
                 Overview
               </div>
@@ -26,9 +27,9 @@ const Overview: React.FC = () => {
           <div className="min-w-60 w-[264px]">
             <div className="flex w-full pr-6 max-md:pr-5">
               <div className="flex gap-3">
-                <div className="text-base text-[#707070] font-light whitespace-nowrap text-center leading-none w-4 px-0.5 py-1.5">
+                <span className="material-icons text-base text-[#707070] font-light whitespace-nowrap text-center leading-none w-4 px-0.5 py-1.5">
                   bed
-                </div>
+                </span>
                 <div className="text-[#707070] text-xs font-extrabold leading-6 tracking-[0.5px] uppercase">
                   Last Recorded Location
                 </div>
@@ -50,9 +51,9 @@ const Overview: React.FC = () => {
           <div className="min-w-60 w-[264px]">
             <div className="flex w-full pr-6 max-md:pr-5">
               <div className="flex gap-3">
-                <div className="text-base text-[#707070] font-light whitespace-nowrap text-center leading-none w-4 px-0.5 py-1">
+                <span className="material-icons text-base text-[#707070] font-light whitespace-nowrap text-center leading-none w-4 px-0.5 py-1">
                   workspaces
-                </div>
+                </span>
                 <div className="text-[#707070] text-xs font-extrabold leading-6 tracking-[0.5px] uppercase">
                   Active Programs
                 </div>
@@ -79,9 +80,9 @@ const Overview: React.FC = () => {
           <div className="min-w-60 w-[264px]">
             <div className="flex w-full pr-6 max-md:pr-5">
               <div className="flex gap-3">
-                <div className="text-base text-[#707070] font-light whitespace-nowrap text-center leading-none w-4 px-px py-[3px]">
+                <span className="material-icons text-base text-[#707070] font-light whitespace-nowrap text-center leading-none w-4 px-px py-[3px]">
                   waving_hand
-                </div>
+                </span>
                 <div className="text-[#707070] text-xs font-extrabold leading-6 tracking-[0.5px] uppercase">
                   Last encounter
                 </div>
@@ -102,9 +103,9 @@ const Overview: React.FC = () => {
           <div className="min-w-60 w-[264px]">
             <div className="flex w-full pr-6 max-md:pr-5">
               <div className="flex gap-3">
-                <div className="text-base text-[#707070] font-light whitespace-nowrap text-center leading-none w-4 px-[3px] py-1">
+                <span className="material-icons text-base text-[#707070] font-light whitespace-nowrap text-center leading-none w-4 px-[3px] py-1">
                   meeting_room
-                </div>
+                </span>
                 <div className="text-[#707070] text-xs font-extrabold leading-6 tracking-[0.5px] uppercase">
                   Upcoming Appointment
                 </div>

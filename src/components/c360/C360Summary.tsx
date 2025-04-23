@@ -27,9 +27,9 @@ const C360Summary: React.FC = () => {
                   <div className="z-10 flex items-center text-[#707070] whitespace-nowrap pl-1">
                     <div className="self-stretch flex min-h-12 flex-col items-stretch text-[#0070DD] justify-center w-[110px] my-auto pt-3 px-3">
                       <div className="flex items-center gap-2">
-                        <div className="self-stretch text-base font-light text-center leading-none w-4 my-auto p-0.5">
+                        <span className="material-icons self-stretch text-base font-light text-center leading-none w-4 my-auto p-0.5">
                           grid_view
-                        </div>
+                        </span>
                         <div className="text-ellipsis text-sm font-semibold leading-5 self-stretch my-auto">
                           Summary
                         </div>
@@ -38,9 +38,9 @@ const C360Summary: React.FC = () => {
                     </div>
                     <div className="self-stretch flex min-h-12 flex-col items-stretch justify-center w-[94px] my-auto pt-3 px-3">
                       <div className="flex items-center gap-2">
-                        <div className="self-stretch text-base font-light text-center leading-none w-4 my-auto p-0.5">
+                        <span className="material-icons self-stretch text-base font-light text-center leading-none w-4 my-auto p-0.5">
                           ecg_heart
-                        </div>
+                        </span>
                         <div className="text-ellipsis text-sm font-semibold leading-5 self-stretch my-auto">
                           Clinical
                         </div>
@@ -49,9 +49,9 @@ const C360Summary: React.FC = () => {
                     </div>
                     <div className="self-stretch flex min-h-12 flex-col items-stretch justify-center w-[102px] my-auto pt-3 px-3">
                       <div className="flex items-center gap-2">
-                        <div className="self-stretch text-base font-light text-center leading-none w-4 my-auto p-[3px]">
+                        <span className="material-icons self-stretch text-base font-light text-center leading-none w-4 my-auto p-[3px]">
                           house
-                        </div>
+                        </span>
                         <div className="text-ellipsis text-sm font-semibold leading-5 self-stretch my-auto">
                           Housing
                         </div>
@@ -60,9 +60,9 @@ const C360Summary: React.FC = () => {
                     </div>
                     <div className="self-stretch flex min-h-12 flex-col items-stretch justify-center w-[115px] my-auto pt-3 px-3">
                       <div className="flex items-center gap-2">
-                        <div className="self-stretch text-base font-light text-center leading-none w-4 my-auto p-0.5">
+                        <span className="material-icons self-stretch text-base font-light text-center leading-none w-4 my-auto p-0.5">
                           cognition
-                        </div>
+                        </span>
                         <div className="text-ellipsis text-sm font-semibold leading-5 self-stretch my-auto">
                           Behavioral
                         </div>
@@ -77,8 +77,8 @@ const C360Summary: React.FC = () => {
                 <div className="self-stretch flex min-w-60 items-center gap-2 whitespace-nowrap my-auto pr-4">
                   <div className="self-stretch flex gap-2 text-xl text-[#1F1F1F] font-light text-center leading-none w-8 my-auto">
                     <div className="rounded flex w-8">
-                      <div className="rounded bg-neutral-200 w-8 h-8 px-[3px]">
-                        download
+                      <div className="rounded bg-neutral-200 w-8 h-8 px-[3px] flex items-center justify-center">
+                        <span className="material-icons">download</span>
                       </div>
                     </div>
                   </div>
@@ -88,9 +88,9 @@ const C360Summary: React.FC = () => {
                         <div className="items-stretch rounded bg-white flex w-full flex-col justify-center px-2 py-1.5">
                           <div className="flex w-full items-center gap-2">
                             <div className="self-stretch flex w-full items-center gap-2 overflow-hidden flex-1 shrink basis-[0%] my-auto">
-                              <div className="self-stretch text-base text-center leading-none w-4 my-auto p-[3px]">
+                              <span className="material-icons self-stretch text-base text-center leading-none w-4 my-auto p-[3px]">
                                 search
-                              </div>
+                              </span>
                               <div className="text-sm leading-none self-stretch my-auto">
                                 Search
                               </div>
