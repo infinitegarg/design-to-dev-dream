@@ -8,10 +8,12 @@ import { X } from "lucide-react";
 import { useToast } from "@/hooks/use-toast";
 import CopilotSuggestionButton from "./CopilotSuggestionButton";
 import { Bot } from "lucide-react";
+
 interface Message {
   role: "user" | "assistant";
   content: string;
 }
+
 const AICopilot: React.FC = () => {
   const [messages, setMessages] = useState<Message[]>([]);
   const [inputValue, setInputValue] = useState("");
@@ -19,6 +21,7 @@ const AICopilot: React.FC = () => {
   const {
     toast
   } = useToast();
+
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
     if (!inputValue.trim()) return;
@@ -47,6 +50,7 @@ const AICopilot: React.FC = () => {
       setIsLoading(false);
     }
   };
+
   const suggestions = [{
     label: "Quality",
     query: "What's the quality of care for this patient?"
@@ -63,17 +67,20 @@ const AICopilot: React.FC = () => {
     label: "Attribution",
     query: "Who is the primary care provider for this patient?"
   }];
+
   const handleSuggestionClick = (query: string) => {
     setInputValue(query);
   };
+
   const handleCloseSidebar = () => {
     document.cookie = "sidebar:state=collapsed; path=/; max-age=604800";
     window.location.reload();
   };
+
   return <SidebarProvider defaultOpen={true}>
       <Sidebar side="right" variant="sidebar" className="border-l border-gray-200 min-w-[400px]">
         <SidebarRail />
-        <SidebarHeader className="flex justify-between border-b py-3 px-4 bg-white">
+        <SidebarHeader className="flex justify-between items-center border-b py-3 px-4 bg-white">
           <div className="flex items-center gap-2">
             <Bot size={22} className="text-[#9b87f5]" />
             <h2 className="text-lg font-bold text-gray-800 tracking-tight">Copilot</h2>
@@ -112,11 +119,9 @@ const AICopilot: React.FC = () => {
           </div>
           <form onSubmit={handleSubmit} className="flex items-center gap-2">
             <div className="relative flex-1">
-              {/* Removed material-icons span as requested */}
               <Input placeholder="Type your message here..." className="pl-4 pr-4 py-2" value={inputValue} onChange={e => setInputValue(e.target.value)} disabled={isLoading} />
             </div>
             <Button type="submit" disabled={!inputValue.trim() || isLoading} variant="outline" size="icon" className="shrink-0">
-              {/* Optionally use Lucide send icon; using placeholder text for now */}
               <span className="material-icons">send</span>
               <span className="sr-only">Send</span>
             </Button>
@@ -125,4 +130,5 @@ const AICopilot: React.FC = () => {
       </Sidebar>
     </SidebarProvider>;
 };
+
 export default AICopilot;
