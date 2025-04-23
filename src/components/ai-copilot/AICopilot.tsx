@@ -1,3 +1,4 @@
+
 "use client";
 
 import React, { useState } from "react";
@@ -14,6 +15,7 @@ import {
 import { X } from "lucide-react";
 import { useToast } from "@/hooks/use-toast";
 import CopilotSuggestionButton from "./CopilotSuggestionButton";
+import { Bot } from "lucide-react";
 
 interface Message {
   role: "user" | "assistant";
@@ -97,11 +99,12 @@ const AICopilot: React.FC = () => {
       >
         <SidebarRail />
         <SidebarHeader
-          className="flex items-center justify-between border-b py-2 px-4 bg-white"
+          className="flex items-center justify-between border-b py-3 px-4 bg-white"
         >
-          <h2 className="text-lg font-bold text-gray-800 tracking-tight">
-            Copilot
-          </h2>
+          <div className="flex items-center gap-2">
+            <Bot size={22} className="text-[#9b87f5]" />
+            <h2 className="text-lg font-bold text-gray-800 tracking-tight">Copilot</h2>
+          </div>
           <Button
             size="icon"
             variant="ghost"
@@ -146,12 +149,11 @@ const AICopilot: React.FC = () => {
           </div>
           <form onSubmit={handleSubmit} className="flex items-center gap-2">
             <div className="relative flex-1">
-              <span className="absolute left-3 top-1/2 -translate-y-1/2 text-gray-400">
-                <span className="material-icons">search</span>
-              </span>
-              <Input placeholder="Type your message here..." className="pl-10 pr-4 py-2" value={inputValue} onChange={e => setInputValue(e.target.value)} disabled={isLoading} />
+              {/* Removed material-icons span as requested */}
+              <Input placeholder="Type your message here..." className="pl-4 pr-4 py-2" value={inputValue} onChange={e => setInputValue(e.target.value)} disabled={isLoading} />
             </div>
             <Button type="submit" disabled={!inputValue.trim() || isLoading} variant="outline" size="icon" className="shrink-0">
+              {/* Optionally use Lucide send icon; using placeholder text for now */}
               <span className="material-icons">send</span>
               <span className="sr-only">Send</span>
             </Button>
