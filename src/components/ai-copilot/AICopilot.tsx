@@ -1,4 +1,3 @@
-
 "use client";
 import React, { useState } from "react";
 import { Input } from "@/components/ui/input";
@@ -11,8 +10,8 @@ import {
   SidebarFooter,
   SidebarRail
 } from "@/components/ui/sidebar";
-import { SidebarClose } from "@/components/ui/drawer"; // Import SidebarClose for the close button
-import { X } from "lucide-react"; // Lucide close icon
+import { DrawerClose } from "@/components/ui/drawer"; // Changed from SidebarClose to DrawerClose
+import { X } from "lucide-react"; 
 import { useToast } from "@/hooks/use-toast";
 import CopilotSuggestionButton from "./CopilotSuggestionButton";
 
@@ -71,12 +70,12 @@ const AICopilot: React.FC = () => {
       <Sidebar 
         side="right" 
         variant="sidebar" 
-        className="border-l border-gray-200 min-w-[400px]" // Enforce min width
+        className="border-l border-gray-200 min-w-[400px]"
       >
         <SidebarRail />
         <SidebarHeader className="relative flex flex-col items-center p-4 border-b">
           {/* Close button in the top right */}
-          <SidebarClose asChild>
+          <DrawerClose asChild>
             <Button 
               size="icon" 
               variant="ghost" 
@@ -85,7 +84,7 @@ const AICopilot: React.FC = () => {
             >
               <X className="w-5 h-5" />
             </Button>
-          </SidebarClose>
+          </DrawerClose>
           <div className="w-16 h-16 mb-2">
             <img 
               src="/lovable-uploads/7ba51120-a6da-421d-b781-2d96cb842dd0.png" 
@@ -171,4 +170,3 @@ const AICopilot: React.FC = () => {
 };
 
 export default AICopilot;
-
