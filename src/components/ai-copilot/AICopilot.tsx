@@ -7,7 +7,6 @@ import { SidebarProvider, Sidebar, SidebarContent, SidebarHeader, SidebarFooter,
 import { X } from "lucide-react";
 import { useToast } from "@/hooks/use-toast";
 import CopilotSuggestionButton from "./CopilotSuggestionButton";
-import CopilotPromptChip from "./CopilotPromptChip";
 import { Bot } from "lucide-react";
 
 interface Message {
@@ -95,12 +94,8 @@ const AICopilot: React.FC = () => {
           {messages.length === 0 ? (
             <div className="flex flex-col items-center justify-center py-8 gap-3">
               <p className="text-center text-gray-500">
-                You can ask me many questions about your data. I can answer questions about
+                You can ask me many questions about your data.
               </p>
-              <CopilotPromptChip
-                text="Payer, provider, patient details, document type, facility"
-                className="mt-2"
-              />
             </div>
           ) : (
             <div className="space-y-4">
