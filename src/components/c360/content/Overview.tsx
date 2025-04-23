@@ -1,9 +1,6 @@
-
 import React from "react";
-
 const Overview: React.FC = () => {
-  return (
-    <section className="min-w-60 grow shrink w-[461px] pb-4 px-4 max-md:max-w-full">
+  return <section className="min-w-60 grow shrink w-[461px] pb-4 px-4 max-md:max-w-full bg-neutral-50 rounded-lg">
       <div className="flex w-full max-w-[544px] max-md:max-w-full">
         <div className="flex min-w-60 w-full items-center gap-[40px_100px] justify-between flex-wrap flex-1 shrink basis-[0%] py-2 max-md:max-w-full">
           <div className="self-stretch flex items-center gap-4 overflow-hidden my-auto">
@@ -122,9 +119,6 @@ const Overview: React.FC = () => {
           </div>
         </div>
       </div>
-    </section>
-  );
+    </section>;
 };
-
 export default Overview;
-
